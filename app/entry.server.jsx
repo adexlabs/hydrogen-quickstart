@@ -22,6 +22,7 @@ export default async function handleRequest(
     scriptSrc: ["'self'", "maps.googleapis.com"],
     imgSrc: ["'self'", "maps.googleapis.com"],
 
+    
     scriptSrc: [
       "'self'",
       'https://cdn.shopify.com',
@@ -49,7 +50,7 @@ export default async function handleRequest(
       'http://localhost:*',
       "'unsafe-inline'", // Required for inline styles
     ],
-    
+
     imgSrc: [
       "'self'",
       'https://cdn.shopify.com',
