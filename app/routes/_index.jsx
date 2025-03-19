@@ -10,6 +10,7 @@ import MyApp from '~/components/MyApp';
 import { COUNTRY_QUERY } from '~/lib/fragments';
 import CountryBar from '~/components/CountryBar';
 import { CountrySelector } from '~/components/CountrySelector';
+import Hello from '~/components/Hello';
 
 /**
  * @type {MetaFunction}
@@ -77,6 +78,7 @@ export default function Homepage() {
       {/* <MapData/> */}
       {/* <MyApp/> */}
       <GoogleMap/>
+      <Hello/>
       {/* <StoreMap2/> */}
       {/* <StoreLocation/> */}
       {/* <MapPage/> */}
