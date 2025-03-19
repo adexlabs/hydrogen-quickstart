@@ -32,6 +32,7 @@ export default async function handleRequest(
       'https://maps.gstatic.com', // Google Maps styles
       'https://goo.gle/js-api-loading',
     ],
+    
     connectSrc: [
       "'self'",
       'https://cdn.shopify.com',
