@@ -231,3 +231,18 @@ export const FOOTER_QUERY = `#graphql
   }
   ${MENU_FRAGMENT}
 `;
+
+
+export const COUNTRY_QUERY = `#graphql
+  query CountryQuery(
+    $country: CountryCode
+    $language: LanguageCode
+  ) @inContext(language: $language, country: $country) {
+    localization {
+      availableCountries {
+        isoCode
+        name
+      }
+    }
+  }
+`;

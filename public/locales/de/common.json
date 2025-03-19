@@ -1,0 +1,12 @@
+{
+    "account": {
+      "login": "Anmelden",
+      "create": "Ein Konto erstellen",
+      "forgot": "Passwort vergessen"
+    },
+    "fields": {
+      "email": "E-Mail-Adresse",
+      "password": "Passwort"
+    }
+  }
+  

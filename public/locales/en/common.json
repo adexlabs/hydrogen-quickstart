@@ -1,0 +1,12 @@
+{
+    "account": {
+      "login": "Sign in",
+      "create": "Create an account",
+      "forgot": "Forgot password"
+    },
+    "fields": {
+      "email": "Email address",
+      "password": "Password"
+    }
+  }
+  

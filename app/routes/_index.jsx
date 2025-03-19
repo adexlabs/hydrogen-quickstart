@@ -2,6 +2,14 @@ import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
 import MapData from '~/components/MapData';
+import StoreLocation from '~/components/StoreLocation';
+import MapPage from './map';
+import StoreMap2 from '~/components/StoreMap2';
+import GoogleMap from '~/components/GoogleMap';
+import MyApp from '~/components/MyApp';
+import { COUNTRY_QUERY } from '~/lib/fragments';
+import CountryBar from '~/components/CountryBar';
+import { CountrySelector } from '~/components/CountrySelector';
 
 /**
  * @type {MetaFunction}
@@ -66,7 +74,14 @@ export default function Homepage() {
     <div className="home">
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
-      <MapData/>
+      {/* <MapData/> */}
+      {/* <MyApp/> */}
+      <GoogleMap/>
+      {/* <StoreMap2/> */}
+      {/* <StoreLocation/> */}
+      {/* <MapPage/> */}
+  {/* <CountrySelector/> */}
+
     </div>
   );
 }

@@ -20,6 +20,7 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  privateEnv: ['GOOGLE_MAPS_API_KEY'],
   build: {
     // Allow a strict Content-Security-Policy
     // withtout inlining assets as base64:

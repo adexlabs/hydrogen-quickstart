@@ -3,6 +3,22 @@
 /* eslint-disable */
 import type * as StorefrontAPI from '@shopify/hydrogen/storefront-api-types';
 
+export type OrderCardFragment = Pick<
+  StorefrontAPI.Order,
+  'id' | 'name' | 'processedAt'
+> & {
+  totalPriceV2: Pick<StorefrontAPI.MoneyV2, 'amount' | 'currencyCode'>;
+  lineItems: {
+    edges: Array<{
+      node: Pick<StorefrontAPI.OrderLineItem, 'title' | 'quantity'> & {
+        variant?: StorefrontAPI.Maybe<{
+          image?: StorefrontAPI.Maybe<Pick<StorefrontAPI.Image, 'url'>>;
+        }>;
+      };
+    }>;
+  };
+};
+
 export type MoneyFragment = Pick<
   StorefrontAPI.MoneyV2,
   'currencyCode' | 'amount'
@@ -286,6 +302,17 @@ export type FooterQuery = {
       >;
     }
   >;
+};
+
+export type CountryQueryQueryVariables = StorefrontAPI.Exact<{
+  country?: StorefrontAPI.InputMaybe<StorefrontAPI.CountryCode>;
+  language?: StorefrontAPI.InputMaybe<StorefrontAPI.LanguageCode>;
+}>;
+
+export type CountryQueryQuery = {
+  localization: {
+    availableCountries: Array<Pick<StorefrontAPI.Country, 'isoCode' | 'name'>>;
+  };
 };
 
 export type StoreRobotsQueryVariables = StorefrontAPI.Exact<{
@@ -1172,6 +1199,10 @@ interface GeneratedQueryTypes {
   '#graphql\n  query Footer(\n    $country: CountryCode\n    $footerMenuHandle: String!\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    menu(handle: $footerMenuHandle) {\n      ...Menu\n    }\n  }\n  #graphql\n  fragment MenuItem on MenuItem {\n    id\n    resourceId\n    tags\n    title\n    type\n    url\n  }\n  fragment ChildMenuItem on MenuItem {\n    ...MenuItem\n  }\n  fragment ParentMenuItem on MenuItem {\n    ...MenuItem\n    items {\n      ...ChildMenuItem\n    }\n  }\n  fragment Menu on Menu {\n    id\n    items {\n      ...ParentMenuItem\n    }\n  }\n\n': {
     return: FooterQuery;
     variables: FooterQueryVariables;
+  };
+  '#graphql\n  query CountryQuery(\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    localization {\n      availableCountries {\n        isoCode\n        name\n      }\n    }\n  }\n': {
+    return: CountryQueryQuery;
+    variables: CountryQueryQueryVariables;
   };
   '#graphql\n  query StoreRobots($country: CountryCode, $language: LanguageCode)\n   @inContext(country: $country, language: $language) {\n    shop {\n      id\n    }\n  }\n': {
     return: StoreRobotsQuery;
