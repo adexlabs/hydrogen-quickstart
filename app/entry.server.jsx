@@ -49,6 +49,7 @@ export default async function handleRequest(
       'http://localhost:*',
       "'unsafe-inline'", // Required for inline styles
     ],
+    
     imgSrc: [
       "'self'",
       'https://cdn.shopify.com',
